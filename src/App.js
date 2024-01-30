@@ -12,7 +12,7 @@ function App() {
       ) : (
         <button
           onClick={() => setModalOpen(true)}
-          className="px-4 py-3 rounded bg-teal-500 text-white"
+          className="py-3 px-4 text-sm font-semibold text-green-light-2 bg-green rounded-lg"
         >
           Open Modal
         </button>

@@ -10,7 +10,7 @@ function Dropdown({ items = [] }) {
   items = [{ id: 0, name: "Select", icon: "" }, ...items];
 
   const dropdownBtnClass =
-    "w-full flex items-center gap-2 px-3 py-2.5 text-base font-medium rounded-lg outline-none border border-[#dbdbdb] focus:border-2 focus:border-[#2f991e]";
+    "w-full flex items-center gap-2 px-3 py-2.5 text-base font-medium rounded-lg border-0 outline outline-1 outline-[#dbdbdb] focus:outline-2 focus:outline-[#2f991e]";
 
   const handleItemSelection = (item) => {
     setSelectedIndex(item);
@@ -24,7 +24,7 @@ function Dropdown({ items = [] }) {
   useClickOutside(dropdownRef, handleOutsideClick);
 
   return (
-    <div className="group flex flex-col gap-1.5" ref={dropdownRef}>
+    <div className="group flex flex-col" ref={dropdownRef}>
       {/* dropdown button */}
       <button
         type="button"
@@ -44,18 +44,19 @@ function Dropdown({ items = [] }) {
 
       {/* dropdown menu */}
       <div className={`relative ${isOpen ? "block" : "hidden"}`}>
-        <div className="absolute left-0 right-0 max-h-[220px] overflow-auto p-2 bg-white rounded-lg shadow-[0_2px_20px_0_#19191b1a]">
+        <div className="absolute top-1.5 left-0 right-0 max-h-[220px] overflow-auto p-2 bg-white rounded-lg shadow-[0_2px_20px_0_#19191b1a]">
           <ul className="flex flex-col gap-1">
             {items &&
               items.map(({ id, name, icon }, index) => (
                 <li
                   key={id}
-                  className={`h-[40px] flex items-center gap-2 p-2 text-sm font-semibold rounded-lg hover:bg-[#094f0c0f] cursor-pointer ${items[selectedIndex - 1] === index ? "bg-[#094f0c0f]" : ""}`}
+                  className={`h-[40px] flex items-center gap-2 p-2 text-sm font-semibold rounded-lg hover:bg-[#094f0c0f] cursor-pointer ${selectedIndex - 1 === index ? "bg-[#094f0c0f]" : ""}`}
                   onClick={() => handleItemSelection(index + 1)}
                 >
                   {icon && <img src={icon} alt="icon" />}
                   <span> {name} </span>
-                  {items[selectedIndex - 1] === index && (
+                  {console.log(name, selectedIndex, index)}
+                  {selectedIndex - 1 === index && (
                     <img src={checkIcon} alt="check_icon" className="ml-auto" />
                   )}
                 </li>

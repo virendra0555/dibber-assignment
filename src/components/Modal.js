@@ -10,7 +10,7 @@ function Modal() {
   const formControlClass = "w-full flex flex-col gap-1.5";
   const labelClass = "text-sm font-semibold";
   const inputClass =
-    "w-full px-3.5 py-2.5 text-base font-medium placeholder:text-placeholder rounded-lg outline-none border border-[#dbdbdb] focus:border-2 focus:border-[#2f991e]";
+    "w-full px-3.5 py-2.5 text-base font-medium placeholder:text-placeholder rounded-lg border-0 outline outline-1 outline-[#dbdbdb] focus:outline-2 focus:outline-[#2f991e]";
   const weekDays = ["M", "T", "W", "T", "F"];
   const primaryBtnClass =
     "py-3 px-4 text-sm font-semibold text-green-light-2 bg-green rounded-lg";
